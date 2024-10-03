@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="registration-container">
+        <h1>Регистрация</h1>
+        <form id="registration-form">
+            <label for="username">Имя пользователя:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="referrerCode">Код реферала (необязательно):</label>
+            <input type="text" id="referrerCode" name="referrerCode">
+
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+            const username = document.getElementById('username').value;
+            const referrerCode = document.getElementById('referrerCode').value;
+
+            const response = await fetch('http://localhost:5000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, referrerCode }),
+            });
+
+            const data = await response.json();
+            const messageElement = document.getElementById('message');
+
+            if (response.ok) {
+                messageElement.innerText = 'Пользователь успешно зарегистрирован!';
+                setTimeout(() => {
+                    window.location.href = 'friends.html?username=' + username;
+                }, 2000);
+            } else {
+                messageElement.innerText = 'Ошибка: ' + data.message;
+            }
+        });
+    </script>
+</body>
+</html>

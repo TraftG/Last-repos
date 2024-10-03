@@ -131,3 +131,22 @@ img {
     font-size: 10px;
     margin-right: 150px;
 }
+
+.wallet-connect {
+    position: absolute;
+    top:20px;
+    left: 250px;
+}
+
+#connect-wallet {
+    padding: 10px 15px;
+    background-color: white; /* Зеленый фон */
+    color: black; /* Белый текст */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#connect-wallet:hover {
+    background-color: white; /* Темнее при наведении */
+}

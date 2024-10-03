@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <img src="/Img and Vid/KarmaStarVol1-unscreen.gif" alt="Karma Star">
+    <div class="wallet-connect">
+        <button id="connect-wallet">Connect Wallet</button>
+    </div>
 
+    <img src="/Img and Vid/KarmaStarVol1-unscreen.gif" alt="Karma Star">
     <div class="karma-counter">
         <h2>Карма: <span id="karma-balance">0$</span></h2>
     </div>
     
     <div class="lottery-status">
         <h3>Статус лотереи: <span id="lottery-status">Активна</span></h3>
-        <p>Осталось дней: <span id="days-left">30</span>, <span id="minutes-left">15</span> минут, <span id="seconds-left">45</span> секунд</p>
+        <p>Left Days: <span id="days-left">30</span>, <span id="hours-left">0</span> часов, <span id="minutes-left">0</span> минут, <span id="seconds-left">0</span> секунд</p>
     </div>
 
     <div class="navbar">
@@ -32,6 +35,6 @@
 
     <script src="karma.js"></script>
     <script src="lotteryTimer.js"></script>
+    <script src="https://cdn.ton.org/ton-connect.js"></script>
 </body>
 </html>
- 
